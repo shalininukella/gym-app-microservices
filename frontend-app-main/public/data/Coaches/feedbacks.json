@@ -1,0 +1,107 @@
+[
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+      "clientName": "Emily",
+      "date": "2024-03-05",
+      "id": "f12846d5c951184d705b6501",
+      "message": "Such a positive environment! The workouts are fun and I always feel super energized afterwards.",
+      "rating": "5"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/men/12.jpg",
+      "clientName": "Chris",
+      "date": "2023-12-12",
+      "id": "f22846d5c951184d705b6502",
+      "message": "Love how the sessions are structured. There's a good balance of strength and flexibility work.",
+      "rating": "4"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/women/13.jpg",
+      "clientName": "Rachel",
+      "date": "2024-02-28",
+      "id": "f32846d5c951184d705b6503",
+      "message": "Friendly trainers who really care about progress. I’ve seen a noticeable improvement in my stamina!",
+      "rating": "5"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/men/14.jpg",
+      "clientName": "Oliver",
+      "date": "2024-01-09",
+      "id": "f42846d5c951184d705b6504",
+      "message": "Every session is challenging but fun. I appreciate how the coach keeps me motivated throughout.",
+      "rating": "4"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/women/15.jpg",
+      "clientName": "Lily",
+      "date": "2023-10-27",
+      "id": "f52846d5c951184d705b6505",
+      "message": "Great atmosphere and personalized workout plans. I love the attention to detail during sessions.",
+      "rating": "5"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/men/16.jpg",
+      "clientName": "Aaron",
+      "date": "2023-11-14",
+      "id": "f62846d5c951184d705b6506",
+      "message": "Awesome sessions with lots of variety. Never gets boring and I always feel challenged!",
+      "rating": "5"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+      "clientName": "Hannah",
+      "date": "2024-04-01",
+      "id": "f72846d5c951184d705b6507",
+      "message": "Really appreciate the calm and motivating vibe here. It's the perfect break from a stressful day.",
+      "rating": "4"
+    },
+    {
+      "clientImageUrl": "https://randomuser.me/api/portraits/men/18.jpg",
+      "clientName": "Max",
+      "date": "2024-05-15",
+      "id": "f82846d5c951184d705b6508",
+      "message": "A great place to build strength without feeling intimidated. Coaches are super friendly and helpful.",
+      "rating": "5"
+    },
+    {
+        "clientImageUrl": "https://randomuser.me/api/portraits/women/8.jpg",
+        "clientName": "Clara",
+        "date": "2024-03-05",
+        "id": "987846d5c951184d705b65da",
+        "message": "The sessions strike the balance between relaxing and challenging. I always leave feeling energized!",
+        "rating": "5"
+      },
+      {
+        "clientImageUrl": "https://randomuser.me/api/portraits/men/9.jpg",
+        "clientName": "Chris",
+        "date": "2024-02-12",
+        "id": "147846d5c951184d705b65db",
+        "message": "Appreciate the focus on form and technique. I’ve avoided injuries and improved so much!",
+        "rating": "5"
+      },
+      {
+        "clientImageUrl": "https://randomuser.me/api/portraits/women/10.jpg",
+        "clientName": "Isla",
+        "date": "2023-12-28",
+        "id": "258846d5c951184d705b65dc",
+        "message": "Very friendly environment and a coach who really listens. Progress has been steady and motivating!",
+        "rating": "4"
+      },
+      {
+        "clientImageUrl": "https://randomuser.me/api/portraits/men/11.jpg",
+        "clientName": "Ryan",
+        "date": "2024-01-16",
+        "id": "369846d5c951184d705b65dd",
+        "message": "Big fan of the group classes! Always a good vibe, great energy, and supportive people around.",
+        "rating": "5"
+      },
+      {
+        "clientImageUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+        "clientName": "Hannah",
+        "date": "2024-03-22",
+        "id": "471846d5c951184d705b65de",
+        "message": "Best decision ever joining here! Every session feels like I’m investing in myself, mentally and physically.",
+        "rating": "5"
+      }
+  ]
+  

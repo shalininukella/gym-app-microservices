@@ -1,0 +1,104 @@
+{
+  "workouts": [
+    {
+      "activity": "YOGA",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-07-09T10:00:00",
+      "description": "Enhance flexibility and balance with this calming yoga session.",
+      "feedbackId": "582846d5c951184d705b65d1",
+      "id": "1",
+      "name": "Yoga",
+      "state": "Scheduled"
+    },
+    {
+      "activity": "YOGA",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-07-02T10:00:00",
+      "description": "Relax your mind and body with this morning yoga session.",
+      "feedbackId": null,
+      "id": "2",
+      "name": "Yoga",
+      "state": "Scheduled"
+    },
+    {
+      "activity": "FITNESS",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-25T12:00:00",
+      "description": "Experience the ultimate workout with high-energy strength training and cardio.",
+      "feedbackId": "582846d5c951184d705b65d1",
+      "id": "3",
+      "name": "Fitness",
+      "state": "Waiting for feedback"
+    },
+    {
+      "activity": "ROCK_CLIMBING",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-12T09:00:00",
+      "description": "Push your limits with an exciting rock climbing adventure.",
+      "feedbackId": null,
+      "id": "4",
+      "name": "Rock Climbing",
+      "state": "Finished"
+    },
+    {
+      "activity": "YOGA",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-18T10:00:00",
+      "description": "Improve your posture and core strength with a power yoga session.",
+      "feedbackId": "582846d5c951184d705b65d1",
+      "id": "5",
+      "name": "Yoga",
+      "state": "Waiting for feedback"
+    },
+    {
+      "activity": "YOGA",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-10T10:00:00",
+      "description": "Reduce stress and enhance well-being with evening yoga.",
+      "feedbackId": null,
+      "id": "6",
+      "name": "Yoga",
+      "state": "Finished"
+    },
+    {
+      "activity": "FITNESS",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-05T08:00:00",
+      "description": "Cardio and strength training combined for the ultimate fitness session.",
+      "feedbackId": "582846d5c951184d705b65d1",
+      "id": "7",
+      "name": "Fitness",
+      "state": "Waiting for feedback"
+    },
+    {
+      "activity": "ROCK_CLIMBING",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-06-02T07:00:00",
+      "description": "Push your limits with an exciting rock climbing adventure.",
+      "feedbackId": null,
+      "id": "8",
+      "name": "Rock Climbing",
+      "state": "Finished"
+    },
+    {
+      "activity": "ROCK_CLIMBING",
+      "clientId": "582846d5c951184d705b65d1",
+      "coachId": "582846d5c951184d705b65d1",
+      "dateTime": "2025-04-08T15:18:00",
+      "description": "Push your limits with an exciting rock climbing adventure.",
+      "feedbackId": null,
+      "id": "9",
+      "name": "Rock Climbing",
+      "state": "Scheduled"
+    }
+  ]
+ 
+}

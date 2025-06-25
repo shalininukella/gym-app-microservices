@@ -1,0 +1,81 @@
+{
+    "coachWorkouts": [
+      {
+        "activity": "YOGA",
+        "clientId": "582846",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2025-07-09T12:30:00",
+        "description": "Enhance your flexibility and balance with this calming yoga session. Flow through a series of poses designed to stretch and strengthen your entire body while promoting relaxation.",
+        "feedbackId": null,
+        "id": "1",
+        "name": "Yoga",
+        "state": "Scheduled"
+      },
+      {
+        "activity": "YOGA",
+        "clientId": "5828",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2023-07-01T12:30:00",
+        "description": "Enhance your flexibility and balance with this calming yoga session. Flow through a series of poses designed to stretch and strengthen your entire body while promoting relaxation.",
+        "feedbackId": "582846d5c951184d705b65d1",
+        "id": "2",
+        "name": "Yoga",
+        "state": "Waiting for feedback"
+      },
+      {
+        "activity": "MEDITATION",
+        "clientId": "582846d5c951",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2023-06-25T12:30:00",
+        "description": "This class blends gentle yoga with mindfulness practices, fostering a deeper connection between body and mind. Participants will explore various meditation techniques.",
+        "feedbackId": "582846d5c951184d705b65d1",
+        "id": "3",
+        "name": "Mindful Meditation",
+        "state": "Waiting for feedback"
+      },
+      {
+        "activity": "FLOW_YOGA",
+        "clientId": "582846d5c",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2023-06-17T12:30:00",
+        "description": "This class focuses on slow, mindful movements designed to enhance flexibility. Perfect for beginners or those looking to unwind. It emphasizes deep breathing and gentle stretches.",
+        "feedbackId": null,
+        "id": "4",
+        "name": "Flow Yoga",
+        "state": "Finished"
+      },
+      {
+        "activity": "MEDITATION",
+        "clientId": "582846d5c",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2023-06-09T12:30:00",
+        "description": "This class blends gentle yoga with mindfulness practices, fostering a deeper connection between body and mind. Participants will explore various meditation techniques.",
+        "feedbackId": null,
+        "id": "5",
+        "name": "Mindful Meditation",
+        "state": "Finished"
+      },
+      {
+        "activity": "FLOW_YOGA",
+        "clientId": "582846d5c9",
+        "coachId": "582846d5c951184d705b65d1",
+        "dateTime": "2023-05-15T12:30:00",
+        "description": "This class focuses on slow, mindful movements designed to enhance flexibility. Perfect for beginners or those looking to unwind. It emphasizes deep breathing and gentle stretches.",
+        "feedbackId": null,
+        "id": "6",
+        "name": "Flow Yoga",
+        "state": "Finished"
+      },
+      {
+        "activity": "MEDITATION",
+        "clientId": "582846d",
+        "coachId": "582846d5c951184d705b65d2",
+        "dateTime": "2023-05-20T12:30:00",
+        "description": "This class blends gentle yoga with mindfulness practices, fostering a deeper connection between body and mind. Participants will explore various meditation techniques.",
+        "feedbackId": null,
+        "id": "7",
+        "name": "Mindful Meditation",
+        "state": "Finished"
+      }
+    ]
+  }

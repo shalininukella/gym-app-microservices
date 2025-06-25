@@ -1,0 +1,492 @@
+import { useState, useRef, useEffect } from "react";
+import Button1 from "../common/Button1";
+import SelectInput from "../common/SelectInput";
+import Calendar from "./Calendar";
+import header from "../../assets/Workout-header.svg";
+import { useAppSelector } from "../../hooks/redux";
+import { RootState } from "../../store";
+import { ChevronDown } from "lucide-react";
+import { jsPDF } from 'jspdf';
+import autoTable from 'jspdf-autotable';
+    
+// Define types for the data
+interface CoachPerformanceData {
+  location: string;
+  name: string;
+  email: string;
+  startDate: string;
+  endDate: string;
+  workouts: number;
+  workoutsChange: string;
+  avgFeedback: number;
+  minFeedback: number;
+  minFeedbackChange: string;
+}
+
+interface SalesStatisticsData {
+  location: string;
+  workoutType: string;
+  startDate: string;
+  endDate: string;
+  workoutsLed: number;
+  attendanceRate: string;
+  attendanceChange: string;
+  avgFeedback: number;
+  minFeedback: number;
+  minFeedbackChange: string;
+}
+
+const Reports = () => {
+  const [reportType, setReportType] = useState("coach performance");
+  const [gym, setGym] = useState("All");
+  const [startDate, setStartDate] = useState(new Date("2025-01-25"));
+  const [endDate, setEndDate] = useState(new Date("2025-01-30"));
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showExportDropdown, setShowExportDropdown] = useState(false);
+  const [showReport, setShowReport] = useState(false);
+  
+  // Define refs with proper types
+  const calendarRef = useRef<HTMLDivElement | null>(null);
+  const exportRef = useRef<HTMLDivElement | null>(null);
+  const tableRef = useRef<HTMLTableElement | null>(null);
+
+  const user = useAppSelector((state: RootState) => state.auth?.user);
+  const isLoggedIn = useAppSelector((state: RootState) => state.auth?.isAuthenticated);
+
+  // Sample coach performance data
+  const coachPerformanceData: CoachPerformanceData[] = [
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      name: "Kristin Watson",
+      email: "Kristin_Watson@xyz.com",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workouts: 30,
+      workoutsChange: "-10%",
+      avgFeedback: 4.2,
+      minFeedback: 3,
+      minFeedbackChange: "+10%"
+    },
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      name: "Jacob Jones",
+      email: "Jacob_Jones@xyz.com",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workouts: 32,
+      workoutsChange: "-3%",
+      avgFeedback: 4.9,
+      minFeedback: 4,
+      minFeedbackChange: "+10%"
+    },
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      name: "Bessi Cooper",
+      email: "Bessi_Cooper@xyz.com",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workouts: 36,
+      workoutsChange: "+7%",
+      avgFeedback: 4.7,
+      minFeedback: 4,
+      minFeedbackChange: "-10%"
+    }
+  ];
+
+  // Sample sales statistics data
+  const salesStatisticsData: SalesStatisticsData[] = [
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      workoutType: "Yoga",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workoutsLed: 10,
+      attendanceRate: "100%",
+      attendanceChange: "+10%",
+      avgFeedback: 4.2,
+      minFeedback: 3,
+      minFeedbackChange: "+10%"
+    },
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      workoutType: "Climbing",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workoutsLed: 6,
+      attendanceRate: "80%",
+      attendanceChange: "-3%",
+      avgFeedback: 4.9,
+      minFeedback: 4,
+      minFeedbackChange: "+10%"
+    },
+    {
+      location: "Hrushevsky Street, 16, Kyiv",
+      workoutType: "Cross fit",
+      startDate: "25.01.2025",
+      endDate: "30.01.2025",
+      workoutsLed: 12,
+      attendanceRate: "90%",
+      attendanceChange: "+7%",
+      avgFeedback: 4.7,
+      minFeedback: 4,
+      minFeedbackChange: "-10%"
+    }
+  ];
+
+  // Handle click outside to close calendar
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
+        setShowCalendar(false);
+      }
+      if (exportRef.current && !exportRef.current.contains(event.target as Node)) {
+        setShowExportDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Helper function to convert table data to CSV format
+  const tableToCSV = (table: HTMLTableElement) => {
+    const rows = Array.from(table.querySelectorAll('tr'));
+    
+    return rows.map(row => {
+      const cells = Array.from(row.querySelectorAll('th, td'));
+      return cells.map(cell => `"${cell.textContent?.replace(/"/g, '""') || ''}"`).join(',');
+    }).join('\n');
+  };
+
+  // Helper function to download data as a file
+  const downloadFile = (data: string, filename: string, type: string) => {
+    const blob = new Blob([data], { type });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Export table data to XLS format
+  const exportToXLS = (table: HTMLTableElement) => {
+    // Simple XLS format (actually HTML that Excel can open)
+    const html = `
+      <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel">
+      <head>
+        <meta charset="UTF-8">
+        <!--[if gte mso 9]>
+        <xml>
+          <x:ExcelWorkbook>
+            <x:ExcelWorksheets>
+              <x:ExcelWorksheet>
+                <x:Name>${reportType === "coach performance" ? "Coach Performance" : "Sales Statistics"}</x:Name>
+                <x:WorksheetOptions>
+                  <x:DisplayGridlines/>
+                </x:WorksheetOptions>
+              </x:ExcelWorksheet>
+            </x:ExcelWorksheets>
+          </x:ExcelWorkbook>
+        </xml>
+        <![endif]-->
+        <style>
+          table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+          }
+          th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+          }
+        </style>
+      </head>
+      <body>
+        ${table.outerHTML}
+      </body>
+      </html>
+    `;
+    
+    downloadFile(html, `${reportType.replace(/\s+/g, '_')}_report.xls`, 'application/vnd.ms-excel');
+  };
+
+  // Export table data to CSV format
+  const exportToCSV = (table: HTMLTableElement) => {
+    const csv = tableToCSV(table);
+    downloadFile(csv, `${reportType.replace(/\s+/g, '_')}_report.csv`, 'text/csv');
+  };
+
+  // Export table data to PDF format
+  const exportToPDF = (table: HTMLTableElement) => {
+    try {
+      console.log("Starting PDF export");
+      
+      // Create a new document
+      const doc = new jsPDF();
+      console.log("jsPDF instance created");
+      
+      // Add title
+      doc.text(`${reportType} Report`, 14, 16);
+      console.log("Title added");
+      
+      // Get headers and rows
+      const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent);
+      console.log("Headers:", headers);
+      
+      const rows = Array.from(table.querySelectorAll('tbody tr')).map(row => 
+        Array.from(row.querySelectorAll('td')).map(td => td.textContent)
+      );
+      console.log("Rows:", rows);
+      
+      // Add table to PDF
+      autoTable(doc, {
+        head: [headers],
+        body: rows,
+        startY: 20,
+        margin: { top: 20 },
+        styles: { overflow: 'linebreak' },
+        headStyles: { fillColor: [75, 75, 75] }
+      });
+      console.log("Table added to PDF");
+      
+      // Save the PDF
+      doc.save(`${reportType.replace(/\s+/g, '_')}_report.pdf`);
+      console.log("PDF saved");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      alert(`Error generating PDF: ${error.message}`);
+    }
+  };
+
+  const handleExport = (format: string) => {
+    if (!tableRef.current) return;
+    
+    setShowExportDropdown(false);
+    
+    switch (format) {
+      case 'XLS':
+        exportToXLS(tableRef.current);
+        break;
+      case 'CSV':
+        exportToCSV(tableRef.current);
+        break;
+      case 'PDF':
+        exportToPDF(tableRef.current);
+        break;
+      default:
+        console.error('Unknown export format:', format);
+    }
+  };
+
+  const handleGenerateReport = () => {
+    // In a real implementation, this would trigger report generation from backend
+    console.log("Generating report with filters:", { reportType, gym, startDate, endDate });
+    setShowReport(true);
+  };
+
+  // Update setStartDate and setEndDate to handle null values for Calendar component
+  const handleStartDateChange = (date: Date | null) => {
+    if (date) setStartDate(date);
+  };
+
+  const handleEndDateChange = (date: Date | null) => {
+    if (date) setEndDate(date);
+  };
+
+  return (
+    <>
+      <div className="relative">
+        <img
+          src={header || "/api/placeholder/1200/250"}
+          alt="Header"
+          className="w-full h-auto object-cover max-h-64"
+        />
+        <h1 className="absolute top-1/2 left-6 -translate-y-1/2 text-white text-sm md:text-xl drop-shadow-md">
+          {isLoggedIn
+            ? `Hello, ${user?.firstName || 'Admin'} ${user?.lastName || ''}`
+            : "Welcome!"}
+        </h1>
+      </div>
+
+      <div className="px-4 md:px-8 py-8">
+        <div className="relative">
+          <h2 className="text-xl font-semibold my-6">FILTER</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <SelectInput
+              label="Report Type"
+              name="report"
+              value={reportType}
+              onChange={setReportType}
+              options={[
+                { value: "coach performance", label: "Coach Performance" },
+                { value: "sales statistics", label: "Sales Statistics" },
+              ]}
+            />
+
+            <div className="w-full" ref={calendarRef}>
+            <Calendar
+                                startDate={startDate || new Date()}
+                                endDate={endDate}
+                                setStartDate={setStartDate}
+                                setEndDate={setEndDate}
+            />
+            </div>
+
+            <SelectInput
+              label="Gym"
+              name="gym"
+              value={gym}
+              onChange={setGym}
+              options={[
+                { value: "All", label: "All" },
+                { value: "Hrushevsky Street", label: "Hrushevsky Street, 16, Kyiv" },
+                { value: "Roosewelt Street", label: "Roosewelt Street, 83, Kyiv" },
+                { value: "Greyjoy Manor", label: "Greyjoy Manor, 16, Kyiv" },
+              ]}
+            />
+
+            <div className="container pt-2">
+              <Button1
+                text="Generate Report"
+                className="h-full w-full"
+                onClick={handleGenerateReport}
+              />
+            </div>
+          </div>
+
+          {/* Report display section - Only shown after clicking Generate Report */}
+          {showReport && (
+            <div className="mt-8">
+              <h2 className="text-xl font-semibold mb-4">
+                {reportType === "coach performance" ? "Coach Performance Report" : "Sales Statistics Report"}
+              </h2>
+              
+              <div className="bg-white rounded-lg overflow-x-auto border border-black border-opacity-40">
+                {reportType === "coach performance" ? (
+                  <table ref={tableRef} className="min-w-full divide-y divide-black">
+                    <thead className="bg-[#D9D9D9]">
+                      <tr>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Gym Location</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Coach Name</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Email</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Report Period (Start)</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Report Period (End)</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">No. of Workouts</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Workouts % Change</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Average Feedback (1-5)</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Min Feedback (1-5)</th>
+                        <th className="py-3 px-4 text-left text-md font-medium uppercase tracking-wider">Min Feedback % Change</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {coachPerformanceData.map((coach, index) => (
+                        <tr key={index} className='bg-white'>
+                          <td className="py-4 px-4 text-sm">{coach.location}</td>
+                          <td className="py-4 px-4 text-sm">{coach.name}</td>
+                          <td className="py-4 px-4 text-sm">{coach.email}</td>
+                          <td className="py-4 px-4 text-sm">{coach.startDate}</td>
+                          <td className="py-4 px-4 text-sm">{coach.endDate}</td>
+                          <td className="py-4 px-4 text-sm">{coach.workouts}</td>
+                          <td className={`py-4 px-4 text-sm`}>
+                            {coach.workoutsChange}
+                          </td>
+                          <td className="py-4 px-4 text-sm">{coach.avgFeedback}</td>
+                          <td className="py-4 px-4 text-sm">{coach.minFeedback}</td>
+                          <td className={`py-4 px-4 text-sm`}>
+                            {coach.minFeedbackChange}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                ) : (
+                  <table ref={tableRef} className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-100">
+                      <tr>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gym Location</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Workout Type</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Period (Start)</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Period (End)</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Workouts Led</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attendance Rate</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attendance % Change</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average Feedback (1-5)</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Min Feedback (1-5)</th>
+                        <th className="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Min Feedback % Change</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {salesStatisticsData.map((sales, index) => (
+                        <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.location}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.workoutType}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.startDate}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.endDate}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.workoutsLed}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.attendanceRate}</td>
+                          <td className={`py-4 px-4 text-sm ${sales.attendanceChange.includes('-') ? 'text-red-600' : 'text-green-600'}`}>
+                            {sales.attendanceChange}
+                          </td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.avgFeedback}</td>
+                          <td className="py-4 px-4 text-sm text-gray-900">{sales.minFeedback}</td>
+                          <td className={`py-4 px-4 text-sm ${sales.minFeedbackChange.includes('-') ? 'text-red-600' : 'text-green-600'}`}>
+                            {sales.minFeedbackChange}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
+
+              {/* Export buttons - Only shown when report is displayed */}
+              <div className="flex justify-end mt-4 relative" ref={exportRef}>
+                <button
+                  onClick={() => setShowExportDropdown(!showExportDropdown)}
+                  className="flex items-center gap-2 font-lexend bg-white text-[#323A3A] px-8 border-1 border-b-black py-2 rounded-md hover:bg-[#E5F9FF]"
+                >
+                  Export
+                  <ChevronDown size={16} className="ml-2" />
+                </button>
+
+                {showExportDropdown && (
+                  <div className="absolute right-0 top-12 w-48 bg-white rounded-md shadow-lg z-10 border border-gray-200">
+                    <div className="py-1 font-lexend font-light">
+                      <button
+                        onClick={() => handleExport('XLS')}
+                        className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#E5F9FF]"
+                      >
+                     
+                        Export XLS
+                      </button>
+                      <button
+                        onClick={() => handleExport('CSV')}
+                        className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#E5F9FF]"
+                      >
+                       
+                        Export CSV
+                      </button>
+                      <button
+                        onClick={() => handleExport('PDF')}
+                        className="flex items-center w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[#E5F9FF]"
+                      >
+                     
+                        Export PDF
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Reports;

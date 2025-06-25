@@ -1,0 +1,51 @@
+[
+    {
+      "id": "582846d5c951184d705b65d1",
+      "about": "I have 8 years of experience in the field, having studied various styles of yoga and completed rigorous training programs. I have taught diverse groups, from beginners to advanced practitioners, in both studio and private settings. My passion lies in helping people find balance, inner peace, and physical strength through consistent yoga practice.",
+      "specializations": ["Yoga", "Personal workout", "Group workout"],
+      "certificates": ["MBSR-Certification.pdf", "Yoga-Therapy-Certification.pdf"]
+    },
+    {
+      "id": "78956d5c951184d705b65e22",
+      "about": "A certified climbing coach with 5 years of experience helping beginners and advanced climbers improve their technique and confidence on the wall. I focus on personalized climbing techniques, injury prevention, and building strength and endurance for long-term success in climbing.",
+      "specializations": ["Climbing", "Strength building", "Endurance training"],
+      "certificates": ["Climbing-Instructor.pdf"]
+    },
+    {
+      "id": "91d52f36a74b1183942efc76",
+      "about": "With 7 years of experience, I help individuals enhance their strength and endurance through personalized fitness programs. My expertise lies in crafting strength-based workouts, improving lifting techniques, and building sustainable fitness habits for long-term progress.",
+      "specializations": ["Strength Training", "Weightlifting", "Cardio Conditioning"],
+      "certificates": ["Strength-Specialist.pdf"]
+    },
+    {
+      "id": "8a9b7c6d5e4f3210987g6h5j4",
+      "about": "Certified yoga trainer with 6 years of experience, passionate about helping clients achieve balance and flexibility through yoga. I specialize in guiding individuals on their journey to physical and mental well-being, focusing on breathwork, mindfulness, and body awareness.",
+      "specializations": ["Yoga", "Flexibility", "Mindfulness"],
+      "certificates": ["Advanced-Yoga.pdf"]
+    },
+    {
+      "id": "123456789abcdef123456789",
+      "about": "Experienced climbing coach focusing on technique improvement and safe climbing practices with 4 years of coaching experience. I work with climbers of all levels, emphasizing strength training, endurance, and injury prevention techniques to maximize climbing performance.",
+      "specializations": ["Climbing", "Agility", "Stamina"],
+      "certificates": ["Indoor-Climbing.pdf"]
+    },
+    {
+      "id": "abcdef123456789abcdef1234",
+      "about": "Functional Fitness Trainer specializing in improving mobility, balance, and strength with real-life functional exercises. My approach is centered on helping clients move better, feel stronger, and live a more active and pain-free lifestyle through practical training routines.",
+      "specializations": ["Functional Fitness", "Mobility", "Flexibility"],
+      "certificates": ["Functional-Fitness.pdf"]
+    },
+    {
+      "id": "z9y8x7w6v5u4t3s2r1q0p9o8n7",
+      "about": "Strength coach helping individuals unlock their full physical potential through customized workout plans focused on building muscle and endurance. My coaching philosophy revolves around dedication, discipline, and proper technique to help clients achieve their strength goals safely and effectively.",
+      "specializations": ["Strength", "Powerlifting", "Endurance"],
+      "certificates": ["Strength-Coach.pdf"]
+    },
+    {
+      "id": "x5y6z7a8b9c0d1e2f3g4h5i6j7k8",
+      "about": "Functional fitness trainer focused on designing programs that mimic real-life movements to improve overall strength and flexibility. With a passion for fitness innovation, I create personalized training plans to help clients enhance mobility, build core strength, and perform better in everyday life.",
+      "specializations": ["Functional Fitness", "Flexibility", "Mobility"],
+      "certificates": ["Functional-Trainer.pdf", "Certified-trainer.pdf"]
+    }
+  ]
+  

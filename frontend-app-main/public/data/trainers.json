@@ -1,0 +1,58 @@
+[
+  {
+    "id": "582846d5c951184d705b65d1",
+    "name": "Kristin Watson",
+    "title": "Certified personal yoga trainer",
+    "rating": "4.9",
+    "description": "A Yoga Expert dedicated to crafting personalized workout plans that align with your goals.",
+    "booking": {
+      "type": "Yoga",
+      "time": "1h",
+      "date": "July 9, 10:00 AM"
+    },
+    "availableTimes": ["10:00 - 11:00 AM", "3:00 - 4:00 PM", "4:00 - 5:00 PM"],
+    "image": "https://www.figma.com/file/WUMb633phzIQJzYkWn3FHD/image/1a0503ce634815cd5d36c3edcaf8f2e0285b515c"
+  },
+  {
+    "id": "78956d5c951184d705b65e22",
+    "name": "Jenny Wilson",
+    "title": "Certified personal yoga trainer",
+    "rating": "5.0",
+    "description": "A Yoga Expert dedicated to crafting personalized workout plans that align with your goals.",
+    "booking": {
+      "type": "Yoga",
+      "time": "1h",
+      "date": "July 9, 10:00 AM"
+    },
+    "availableTimes": ["8:00 - 9:00 AM", "3:00 - 4:00 PM", "4:00 - 5:00 PM"],
+    "image": "https://randomuser.me/api/portraits/women/42.jpg"
+  },
+  {
+    "id": "91d52f36a74b1183942efc76",
+    "name": "Wade Warren",
+    "title": "Strength & Conditioning Coach",
+    "rating": "4.8",
+    "description": "Helping athletes reach peak performance with tailored strength training programs.",
+    "booking": {
+      "type": "Strength",
+      "time": "45 mins",
+      "date": "July 9, 11:00 AM"
+    },
+    "availableTimes": ["11:00 AM - 12:05 PM", "2:00 - 3:05 PM", "5:00 - 6:00 PM"],
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "id": "8a9b7c6d5e4f3210987g6h5j4",
+    "name": "Courtney Henry",
+    "title": "Pilates and Flexibility Specialist",
+    "rating": "4.7",
+    "description": "Passionate about improving posture, balance, and flexibility through mindful movement.",
+    "booking": {
+      "type": "Pilates",
+      "time": "1h",
+      "date": "July 9, 9:00 AM"
+    },
+    "availableTimes": ["9:00 - 10:00 AM", "1:00 - 2:00 PM", "6:00 - 7:00 PM"],
+    "image": "https://randomuser.me/api/portraits/women/44.jpg"
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "582846d5c951184d705b65d1",
+      "email": "coach@gmail.com",
+      "firstName": "Kristin",
+      "lastName": "Watson",
+      "password": "Coach@123",
+      "type": "coach"
+    },
+    {
+      "id": "4acfe294-925e-43dc-bb33-6873950f485d",
+      "email": "rashmisurya@gmail.com",
+      "firstName": "Rashmi",
+      "lastName": "Surya",
+      "password": "Rash@2407",
+      "type": "admin"
+    },
+    {
+      "id": "d93f0276-fba6-425a-8b06-bf16431359dc",
+      "email": "gjahnavi@gmail.com",
+      "firstName": "Jahnavi",
+      "lastName": "",
+      "password": "Jahnavi@27",
+      "preferableActivity": "CLIMBING",
+      "target": "LOSE_WEIGHT",
+      "type": "client"
+    },
+    {
+      "id": "c0359541-8278-43db-8b1a-826a60a523a1",
+      "email": "hello@mail.com",
+      "firstName": "Pradip",
+      "lastName": "",
+      "password": "Prasip@123",
+      "preferableActivity": "STRENGTH_TRAINING",
+      "target": "GENERAL_FITNESS",
+      "type": "client"
+    },
+    {
+      "id": "650d1dbb-614b-4389-bd0e-71b2374f6508",
+      "email": "fjdskl@abc.in",
+      "firstName": "Oleksandr",
+      "lastName": "",
+      "password": "Y1jh@kjlfjdsalkj",
+      "preferableActivity": "YOGA",
+      "target": "LOSE_WEIGHT",
+      "type": "client"
+    },
+    {
+      "id": "270f77bb-af2f-48ef-a54b-50ace69443a5",
+      "email": "dasjk@min.com",
+      "firstName": "adsfjkl",
+      "lastName": "",
+      "password": "H@12abca",
+      "preferableActivity": "YOGA",
+      "target": "LOSE_WEIGHT",
+      "type": "client"
+    },
+    {
+      "id": "c47faac7-3b7a-4b86-9bf5-c68dc0310f42",
+      "email": "ankurk@gmail.com",
+      "firstName": "Ankur",
+      "lastName": "K",
+      "password": "Ankur@123",
+      "preferableActivity": "YOGA",
+      "target": "LOSE_WEIGHT",
+      "type": "client"
+    }
+  ]
+}

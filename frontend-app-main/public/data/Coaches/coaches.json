@@ -1,0 +1,74 @@
+[
+  {
+    "id": "582846d5c951184d705b65d1",
+    "imageUrl": "../../images/Coaches/image1.png",
+    "motivationPitch": "A Yoga Expert dedicated to crafting a personalized workout plan that aligns with your goals.",
+    "name": "Kristin Watson",
+    "rating": "4.96",
+    "summary": "Certified personal yoga trainer",
+    "type": "Yoga"
+  },
+  {
+    "id": "78956d5c951184d705b65e22",
+    "imageUrl": "../../images/Coaches/image2.png",
+    "motivationPitch": "Scale new challenges with our Climbing Coach. Get instruction to improve climbing skills, and build confidence on the wall.",
+    "name": "Wade Warren",
+    "rating": "4.8",
+    "summary": "Climbing Coach",
+    "type": "Climbing"
+  },
+  {
+    "id": "91d52f36a74b1183942efc76",
+    "imageUrl": "../../images/Coaches/image3.png",
+    "motivationPitch": "Achieve peak performance with our Strength Coach, a specialist in building muscle and increasing power.",
+    "name": "Cameron Williamson",
+    "rating": "5.0",
+    "summary": "Strength Coach",
+    "type": "Strength training"
+  },
+  {
+    "id": "8a9b7c6d5e4f3210987g6h5j4",
+    "imageUrl": "../../images/Coaches/image4.png",
+    "motivationPitch": "A Yoga Expert dedicated to crafting personalized workout plans that align with your goals.",
+    "name": "Jenny Wilson",
+    "rating": "5.0",
+    "summary": "Certified personal yoga trainer",
+    "type": "Yoga"
+  },
+  {
+    "id": "123456789abcdef123456789",
+    "imageUrl": "../../images/Coaches/image5.png",
+    "motivationPitch": "Scale new challenges with our Climbing Coach. Get instruction to improve climbing skills, and build confidence on the wall.",
+    "name": "Jacob Jones",
+    "rating": "4.6",
+    "summary": "Climbing Coach",
+    "type": "Climbing"
+  },
+  {
+    "id": "abcdef123456789abcdef1234",
+    "imageUrl": "../../images/Coaches/image6.png",
+    "motivationPitch": "Transform your fitness with our Functional Fitness Trainer, who focuses on exercises that mimic real-life movements.",
+    "name": "Guy Hawkins",
+    "rating": "4.89",
+    "summary": "Functional Fitness Trainer",
+    "type": "Cross-fit"
+  },
+  {
+    "id": "z9y8x7w6v5u4t3s2r1q0p9o8n7",
+    "imageUrl": "../../images/Coaches/image7.png",
+    "motivationPitch": "Achieve peak performance with our Strength Coach, a specialist in building muscle and increasing power.",
+    "name": "Brooklyn Simmons",
+    "rating": "5.0",
+    "summary": "Strength Coach",
+    "type": "Strength training"
+  },
+  {
+    "id": "x5y6z7a8b9c0d1e2f3g4h5i6j7k8",
+    "imageUrl": "../../images/Coaches/image8.png",
+    "motivationPitch": "Transform your fitness with our Functional Fitness Trainer, who focuses on exercises that mimic real-life movements.",
+    "name": "Bessie Cooper",
+    "rating": "4.97",
+    "summary": "Functional Fitness Trainer",
+    "type": "Cross-fit"
+  }
+]

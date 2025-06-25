@@ -1,0 +1,1 @@
+1. Application gym-management has been successfully deployed!!
